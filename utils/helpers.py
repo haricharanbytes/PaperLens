@@ -130,7 +130,7 @@ def prepare_paper(paper: dict) -> dict:
 
     Returns: same dict + added keys: "clean_abstract", "chunks", "token_count"
     """
-    print("\n⚙️  Preparing paper for summarization...")
+    print("\n  Preparing paper for summarization...")
 
     # Clean the abstract
     clean = clean_text(paper["abstract"])
@@ -141,9 +141,9 @@ def prepare_paper(paper: dict) -> dict:
     # Chunk the text
     chunks = chunk_text(clean)
 
-    print(f"   ✅ Cleaned text  : {len(clean)} characters")
-    print(f"   ✅ Token count   : {token_count} tokens")
-    print(f"   ✅ Chunks created: {len(chunks)} chunk(s)")
+    print(f"    Cleaned text  : {len(clean)} characters")
+    print(f"    Token count   : {token_count} tokens")
+    print(f"    Chunks created: {len(chunks)} chunk(s)")
 
     return {
         **paper,                       # Keep all original fields

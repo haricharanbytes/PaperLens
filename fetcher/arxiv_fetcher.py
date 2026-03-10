@@ -83,12 +83,12 @@ def _build_paper_dict(paper) -> dict:
 
 def display_paper_info(paper: dict):
     """Pretty print paper info to terminal."""
-    print(f"\n📄 Title     : {paper['title']}")
-    print(f"👤 Authors   : {', '.join(paper['authors'][:3])}{'...' if len(paper['authors']) > 3 else ''}")
-    print(f"📅 Published : {paper['published']}")
-    print(f"🏷️  Categories: {', '.join(paper['categories'])}")
-    print(f"🔗 URL       : {paper['url']}")
-    print(f"\n📝 Abstract Preview:\n{paper['abstract'][:300]}...")
+    print(f"\n Title     : {paper['title']}")
+    print(f" Authors   : {', '.join(paper['authors'][:3])}{'...' if len(paper['authors']) > 3 else ''}")
+    print(f" Published : {paper['published']}")
+    print(f"  Categories: {', '.join(paper['categories'])}")
+    print(f" URL       : {paper['url']}")
+    print(f"\n Abstract Preview:\n{paper['abstract'][:300]}...")
 
 
 def get_paper_from_user() -> dict:
@@ -96,7 +96,7 @@ def get_paper_from_user() -> dict:
     Interactive prompt — asks the user how they want to search,
     handles all three input types, and returns a single paper dict.
     """
-    print("\n🔍 How would you like to find your paper?")
+    print("\n How would you like to find your paper?")
     print("   You can enter any of the following:")
     print("   • ArXiv URL  → https://arxiv.org/abs/2303.08774")
     print("   • Paper ID   → 2303.08774")
@@ -111,7 +111,7 @@ def get_paper_from_user() -> dict:
 
     #URL
     if input_type == "url":
-        print("\n🔗 Detected: ArXiv URL")
+        print("\n Detected: ArXiv URL")
         paper_id = extract_id_from_url(user_input)
         print(f"   Extracted ID: {paper_id}")
         print("   Fetching paper...")
@@ -121,7 +121,7 @@ def get_paper_from_user() -> dict:
 
     #ID 
     elif input_type == "id":
-        print("\n🔢 Detected: Paper ID")
+        print("\n Detected: Paper ID")
         # Strip "arxiv:" prefix if present
         clean_id = re.sub(r"^arxiv:", "", user_input, flags=re.IGNORECASE)
         print("   Fetching paper...")
@@ -131,11 +131,11 @@ def get_paper_from_user() -> dict:
 
     #Title / keyword 
     else:
-        print(f"\n🔤 Detected: Title/keyword search → '{user_input}'")
+        print(f"\n Detected: Title/keyword search → '{user_input}'")
         print("   Searching ArXiv...")
         papers = fetch_by_title(user_input)
 
-        print(f"\n📚 Found {len(papers)} results. Pick one:\n")
+        print(f"\n Found {len(papers)} results. Pick one:\n")
         for i, p in enumerate(papers, 1):
             print(f"  [{i}] {p['title']}")
             print(f"      {', '.join(p['authors'][:2])} — {p['published']}\n")
@@ -144,13 +144,13 @@ def get_paper_from_user() -> dict:
             choice = input(f"➤ Enter number (1–{len(papers)}): ").strip()
             if choice.isdigit() and 1 <= int(choice) <= len(papers):
                 selected = papers[int(choice) - 1]
-                print("\n✅ Selected:")
+                print("\n Selected:")
                 display_paper_info(selected)
                 return selected
-            print(f"   ⚠️  Please enter a number between 1 and {len(papers)}.")
+            print(f"     Please enter a number between 1 and {len(papers)}.")
 
 
 #Quick test 
 if __name__ == "__main__":
     paper = get_paper_from_user()
-    print(f"\n✅ Paper ready for summarization: {paper['title']}")
+    print(f"\n Paper ready for summarization: {paper['title']}")

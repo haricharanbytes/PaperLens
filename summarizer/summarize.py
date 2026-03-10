@@ -147,7 +147,7 @@ def summarize_chunks(chunks: list[str], llm: ChatGroq) -> str:
     This mirrors how a human would read a long paper:
     take notes on each section, then write a unified summary.
     """
-    print(f"\n   📄 Processing {len(chunks)} chunk(s) with Map-Reduce...")
+    print(f"\n    Processing {len(chunks)} chunk(s) with Map-Reduce...")
 
     # ── MAP: summarize each chunk ─────────────────────────────────────────
     map_chain = MAP_PROMPT | llm | StrOutputParser()
@@ -180,7 +180,6 @@ def summarize_paper(paper: dict, model: str = "llama-3.3-70b-versatile") -> str:
 
     Returns: final summary string
     """
-    print(f"\n Starting summarization with {model}...")
 
     llm    = get_llm(model=model)
     chunks = paper.get("chunks", [])

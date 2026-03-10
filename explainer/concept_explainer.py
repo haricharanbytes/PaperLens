@@ -74,7 +74,7 @@ def extract_jargon(text: str, llm: ChatGroq) -> list[str]:
 
     Returns: list of term strings e.g. ["Transformer", "BERT", "attention mechanism"]
     """
-    print("\n🔍 Scanning for technical terms...")
+    print("\n Scanning for technical terms...")
 
     chain  = JARGON_EXTRACTOR_PROMPT | llm | StrOutputParser()
     result = chain.invoke({"text": text})
@@ -122,7 +122,7 @@ def explain_all_concepts(terms: list[str], paper: dict, llm: ChatGroq) -> dict[s
 
     explanations = {}
     for i, term in enumerate(terms, 1):
-        print(f"   💡 Explaining term {i}/{len(terms)}: '{term}'...")
+        print(f"    Explaining term {i}/{len(terms)}: '{term}'...")
         explanation        = explain_term(term, context, llm)
         explanations[term] = explanation
 
@@ -160,7 +160,6 @@ def explain_paper_concepts(paper: dict, summary: str, model: str = "llama-3.3-70
 
     Returns: dict of { term: explanation }
     """
-    print(f"\n Running Concept Explainer with {model}...")
 
     llm = ChatGroq(
         api_key=os.getenv("GROQ_API_KEY"),
@@ -172,7 +171,7 @@ def explain_paper_concepts(paper: dict, summary: str, model: str = "llama-3.3-70
     terms = extract_jargon(summary, llm)
 
     if not terms:
-        print("   ℹ️  No technical terms found — paper may already be written simply.")
+        print("    No technical terms found — paper may already be written simply.")
         return {}
 
     # Step 2: Explain each term
@@ -199,7 +198,7 @@ def save_explanations(paper: dict, explanations: dict[str, str]) -> str:
 
     with open(filename, "a", encoding="utf-8") as f:
         f.write(f"\n\n{'=' * 60}\n")
-        f.write("💡 CONCEPT EXPLAINER\n")
+        f.write(" CONCEPT EXPLAINER\n")
         f.write(f"{'=' * 60}\n")
 
         for term, explanation in explanations.items():
@@ -250,4 +249,4 @@ if __name__ == "__main__":
 
     explanations = explain_paper_concepts(mock_paper, mock_summary, model="llama-3.3-70b-versatile")
     path = save_explanations(mock_paper, explanations)
-    print(f"\n💾 Explanations appended to: {path}")
+    print(f"\n Explanations appended to: {path}")

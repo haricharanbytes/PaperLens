@@ -4,3 +4,4 @@ langchain-core
 arxiv
 python-dotenv
 tiktoken        # for counting tokens
+flask>=3.0.0

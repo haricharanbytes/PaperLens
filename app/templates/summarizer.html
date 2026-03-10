@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaperLens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Paper<span>·</span>Lens</a>
+    <div class="nav-model">
+      <span class="model-dot"></span>
+      <span id="model-label">llama-3.3-70b-versatile</span>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Search -->
+    <section class="search-section">
+      <div class="search-tabs">
+        <button class="stab active" data-tab="id">Paper ID</button>
+        <button class="stab" data-tab="url">URL</button>
+        <button class="stab" data-tab="title">Keyword</button>
+      </div>
+      <div class="search-box">
+        <input id="search-input" type="text" placeholder="e.g. 2303.08774" autocomplete="off" />
+        <button id="search-btn">Search</button>
+      </div>
+
+      <!-- Model + options row -->
+      <div class="options-row">
+        <div class="opt-group">
+          <span class="opt-label">Model</span>
+          <select id="model-select">
+            <option value="llama-3.3-70b-versatile">llama-3.3-70b-versatile</option>
+            <option value="llama-3.1-8b-instant">llama-3.1-8b-instant</option>
+            <option value="llama-3.3-70b-specdec">llama-3.3-70b-specdec</option>
+          </select>
+        </div>
+        <label class="toggle-wrap">
+          <input type="checkbox" id="toggle-explain" checked>
+          <span class="toggle"></span>
+          <span class="opt-label">Explain concepts</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Title search results -->
+    <div id="results-list" class="results-list hidden"></div>
+
+    <!-- Paper meta strip -->
+    <div id="paper-strip" class="paper-strip hidden">
+      <div class="ps-left">
+        <div class="ps-id" id="ps-id"></div>
+        <div class="ps-title" id="ps-title"></div>
+        <div class="ps-meta" id="ps-meta"></div>
+      </div>
+      <button id="run-btn" class="run-btn">Summarize →</button>
+    </div>
+
+    <!-- Progress -->
+    <div id="progress" class="progress hidden">
+      <div class="progress-steps">
+        <div class="ps" id="ps-fetch">   <div class="ps-dot"></div> Fetch      </div>
+        <div class="ps" id="ps-clean">   <div class="ps-dot"></div> Clean      </div>
+        <div class="ps" id="ps-sum">     <div class="ps-dot"></div> Summarize  </div>
+        <div class="ps" id="ps-explain"> <div class="ps-dot"></div> Explain    </div>
+      </div>
+      <div class="progress-msg" id="progress-msg">Starting pipeline...</div>
+    </div>
+
+    <!-- Error -->
+    <div id="error-box" class="error-box hidden"></div>
+
+    <!-- Output -->
+    <div id="output" class="output hidden">
+
+      <div class="output-paper-title" id="out-title"></div>
+
+      <!-- Summary cards -->
+      <div class="cards-grid" id="cards-grid"></div>
+
+      <!-- Concepts -->
+      <div id="concepts-section" class="concepts-section hidden">
+        <div class="concepts-header">Concept Explainer</div>
+        <div class="concepts-grid" id="concepts-grid"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

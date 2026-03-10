@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaperLens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">Paper<span>·</span>Lens</div>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="/app" class="nav-cta">Open App →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-tag">PaperLens</div>
+    <h1>Research papers,<br><em>finally readable.</em></h1>
+    <p class="hero-sub">
+      Paste any ArXiv link, ID, or keyword. Get a structured summary<br>
+      and plain-English explanations of every technical concept — instantly.
+    </p>
+    <div class="hero-actions">
+      <a href="/app" class="btn-primary">Summarize Now →</a>
+    </div>
+
+  </section>
+
+  <!-- How it works -->
+  <section class="how" id="how">
+    <div class="section-tag">Pipeline</div>
+    <h2>Four steps.<br>One clean output.</h2>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Fetch</div>
+          <div class="step-desc">Enter an ArXiv ID, URL, or keyword. The app queries the ArXiv API and retrieves the paper's metadata and abstract.</div>
+        </div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Clean</div>
+          <div class="step-desc">LaTeX commands, math expressions, and unicode artifacts are stripped. The text is chunked into token-aware windows.</div>
+        </div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Summarize</div>
+          <div class="step-desc">LangChain routes the text through LLaMA 3 on Groq. Long papers use Map-Reduce. Short ones use a single structured prompt.</div>
+        </div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Explain</div>
+          <div class="step-desc">Technical jargon is auto-detected and explained in plain English with real-world analogies — no PhD required.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Stop skimming.<br>Start understanding.</h2>
+    <p>Works on any ArXiv paper.</p>
+    <a href="/app" class="btn-primary btn-large">Summarize Now →</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">Paper<span>·</span>Lens</div>
+    <div class="footer-links">
+      <a href="/app">App</a>
+      <a href="#how">How it works</a>
+      <a href="https://github.com/haricharanbytes/PaperLens" target="_blank">GitHub</a>
+    </div>
+    <div class="footer-note">Built by Katta Hari Charan | 2026</div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+</body>
+</html>

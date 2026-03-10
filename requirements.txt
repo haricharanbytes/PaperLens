@@ -1,0 +1,5 @@
+langchain
+langchain-groq
+arxiv
+python-dotenv
+tiktoken        # for counting tokens

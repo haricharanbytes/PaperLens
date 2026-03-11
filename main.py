@@ -46,20 +46,22 @@ def ask_model() -> str:
     print("   [1] llama-3.3-70b-versatile  (best quality — recommended)")
     print("   [2] llama-3.1-8b-instant     (faster, lightweight)")
     print("   [3] llama-3.3-70b-specdec    (faster decoding, same quality)")
+    print("   [4] gpt-oss-120b    ")
 
     models = {
         "1": "llama-3.3-70b-versatile",
         "2": "llama-3.1-8b-instant",
         "3": "llama-3.3-70b-specdec",
+        "4": "gpt-oss-120b"
     }
 
     while True:
-        choice = input("\n➤ Enter choice (1/2/3) or press Enter for default: ").strip()
+        choice = input("\n➤ Enter choice (1/2/3/4) or press Enter for default: ").strip()
         if choice == "":
             return "llama-3.3-70b-versatile"
         if choice in models:
             return models[choice]
-        print("     Please enter 1, 2, or 3.")
+        print("     Please enter 1, 2, 3 or 4.")
 
 
 #Validation 

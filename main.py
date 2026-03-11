@@ -10,25 +10,26 @@ from explainer.concept_explainer import explain_paper_concepts, save_explanation
 load_dotenv()
 
 
-# ── Banner ────────────────────────────────────────────────────────────────────
+#Banner
 
 def print_banner():
     print("""
 ╔══════════════════════════════════════════════════════╗
-║        🔬 ArXiv Research Paper Summarizer            ║
-║           Powered by Groq + LLaMA 3                  ║
+║                                                      ║
+║         ArXiv Research Paper Summarizer              ║
+║                                                      ║
 ╚══════════════════════════════════════════════════════╝
     """)
 
 
-# ── Ask user what they want ───────────────────────────────────────────────────
+#Ask user 
 
 def ask_options() -> dict:
     """
     Ask the user which features they want to run.
     Returns a dict of boolean flags.
     """
-    print("\n⚙️  What would you like to do?")
+    print("\n  What would you like to do?")
     print("   [1] Summarize paper only")
     print("   [2] Summarize + Explain concepts")
 
@@ -36,12 +37,12 @@ def ask_options() -> dict:
         choice = input("\n➤ Enter choice (1 or 2): ").strip()
         if choice in ("1", "2"):
             return {"explain_concepts": choice == "2"}
-        print("   ⚠️  Please enter 1 or 2.")
+        print("     Please enter 1 or 2.")
 
 
 def ask_model() -> str:
     """Let the user pick a Groq model."""
-    print("\n🤖 Choose a model:")
+    print("\n Choose a model:")
     print("   [1] llama-3.3-70b-versatile  (best quality — recommended)")
     print("   [2] llama-3.1-8b-instant     (faster, lightweight)")
     print("   [3] llama-3.3-70b-specdec    (faster decoding, same quality)")
@@ -58,15 +59,15 @@ def ask_model() -> str:
             return "llama-3.3-70b-versatile"
         if choice in models:
             return models[choice]
-        print("   ⚠️  Please enter 1, 2, or 3.")
+        print("     Please enter 1, 2, or 3.")
 
 
-# ── Validation ────────────────────────────────────────────────────────────────
+#Validation 
 
 def check_api_key():
     """Check GROQ_API_KEY is set before doing anything."""
     if not os.getenv("GROQ_API_KEY"):
-        print("\n❌ ERROR: GROQ_API_KEY is not set.")
+        print("\n ERROR: GROQ_API_KEY is not set.")
         print("   1. Go to https://console.groq.com/keys")
         print("   2. Create a free API key")
         print("   3. Add it to your .env file:")
@@ -74,60 +75,53 @@ def check_api_key():
         sys.exit(1)
 
 
-# ── Result Display ────────────────────────────────────────────────────────────
+#Result Display
 
 def print_summary(paper: dict, summary: str):
     print("\n" + "═" * 60)
-    print(f"  📄 {paper['title']}")
-    print(f"  👤 {', '.join(paper['authors'][:3])}")
-    print(f"  📅 {paper['published']}")
+    print(f"   {paper['title']}")
+    print(f"   {', '.join(paper['authors'][:3])}")
+    print(f"   {paper['published']}")
     print("═" * 60)
     print(summary)
     print("═" * 60)
 
 
 def print_done(summary_path: str):
-    print(f"\n✅ All done!")
-    print(f"💾 Full output saved to: {summary_path}")
+    print(f"\n All done!")
+    print(f" Full output saved to: {summary_path}")
     print(f"\n   You can open it with:")
     print(f"   cat {summary_path}\n")
 
 
-# ── Main Pipeline ─────────────────────────────────────────────────────────────
+#Main
 
 def main():
     print_banner()
 
-    # 0. Guard: check API key exists
     check_api_key()
 
-    # 1. Ask what the user wants
     options = ask_options()
     model   = ask_model()
 
-    # 2. Fetch paper (URL / ID / title search)
     print("\n" + "─" * 60)
     print("  STEP 1 — Fetch Paper")
     print("─" * 60)
     paper = get_paper_from_user()
 
-    # 3. Clean + chunk the text
     print("\n" + "─" * 60)
     print("  STEP 2 — Prepare Text")
     print("─" * 60)
     paper = prepare_paper(paper)
 
-    # 4. Summarize
     print("\n" + "─" * 60)
     print("  STEP 3 — Summarize")
     print("─" * 60)
     summary = summarize_paper(paper, model=model)
     print_summary(paper, summary)
 
-    # 5. Save summary
     summary_path = save_summary(paper, summary)
 
-    # 6. Optionally explain concepts
     if options["explain_concepts"]:
         print("\n" + "─" * 60)
         print("  STEP 4 — Explain Concepts")
@@ -136,19 +130,16 @@ def main():
         if explanations:
             save_explanations(paper, explanations)
 
-    # 7. Done
     print_done(summary_path)
 
-
-# ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n\n👋 Interrupted. Goodbye!")
+        print("\n\n Interrupted. Goodbye!")
         sys.exit(0)
     except Exception as e:
-        print(f"\n❌ Unexpected error: {e}")
+        print(f"\n Unexpected error: {e}")
         print("   Check your API key and internet connection.")
         sys.exit(1)

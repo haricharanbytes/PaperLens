@@ -33,6 +33,27 @@ arxiv-summarizer/
 └── .gitignore
 ```
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="web_screenshots/1.jpg" alt="Screenshot 1" width="100%"/></td>
+    <td><img src="web_screenshots/2.jpg" alt="Screenshot 2" width="100%"/></td>
+  </tr>
+  <tr>
+    <td><img src="web_screenshots/3.jpg" alt="Screenshot 3" width="100%"/></td>
+    <td><img src="web_screenshots/4.jpg" alt="Screenshot 4" width="100%"/></td>
+  </tr>
+  <tr>
+    <td><img src="web_screenshots/5.jpg" alt="Screenshot 5" width="100%"/></td>
+    <td><img src="web_screenshots/6.jpg" alt="Screenshot 6" width="100%"/></td>
+  </tr>
+  <tr>
+    <td><img src="web_screenshots/7.jpg" alt="Screenshot 7" width="100%"/></td>
+    <td><img src="web_screenshots/8.jpg" alt="Screenshot 8" width="100%"/></td>
+  </tr>
+</table>
+
 <p align="center">
   <b>1. Home Page</b><br>
   <img src="web_screenshots/1.jpg" width="800"><br>

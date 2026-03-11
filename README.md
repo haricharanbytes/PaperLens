@@ -1,33 +1,49 @@
-## Web App Screenshots
+##  PaperLens
 
-### 1. Home Page
-![Home Page](web_screenshots/1.jpg)
-This shows the main landing page of the PaperLens.
+<p align="center">
+  <b>1. Home Page</b><br>
+  <img src="web_screenshots/1.jpg" width="800"><br>
+  <i>This shows the main landing page of PaperLens.</i>
+</p>
 
-### 2. Pipeline
-![Pipeline](web_screenshots/2.jpg)
-This shows the steps in summarizing the paper.
+<p align="center">
+  <b>2. Pipeline</b><br>
+  <img src="web_screenshots/2.jpg" width="800"><br>
+  <i>This shows the steps in summarizing the paper.</i>
+</p>
 
-### 3. start 
-![start](web_screenshots/3.jpg)
-stop skimming and start summarizing.
+<p align="center">
+  <b>3. Start</b><br>
+  <img src="web_screenshots/3.jpg" width="800"><br>
+  <i>Stop skimming and start summarizing.</i>
+</p>
 
-### 4. Search Page
-![Search page](web_screenshots/4.jpg)
-Search by ID, URL and Keyword of the Paper.
+<p align="center">
+  <b>4. Search Page</b><br>
+  <img src="web_screenshots/4.jpg" width="800"><br>
+  <i>Search by ID, URL, and Keyword of the paper.</i>
+</p>
 
-### 5. Search Result
-![Search result](web_screenshots/5.jpg)
-Result of the fetched paper from arXiv API.
+<p align="center">
+  <b>5. Search Result</b><br>
+  <img src="web_screenshots/5.jpg" width="800"><br>
+  <i>Result of the fetched paper from arXiv API.</i>
+</p>
 
-### 6. Summarize Process
-![Summarization](web_screenshots/6.jpg)
-Shows the process of Fetching, Cleaning, Summarizing and Explaining.
+<p align="center">
+  <b>6. Summarize Process</b><br>
+  <img src="web_screenshots/6.jpg" width="800"><br>
+  <i>Shows the process of Fetching, Cleaning, Summarizing, and Explaining.</i>
+</p>
 
-### 7. Summarised Text
-![Summarized Text](web_screenshots/7.jpg)
-Displays stored user data in a structured format.
+<p align="center">
+  <b>7. Summarized Text</b><br>
+  <img src="web_screenshots/7.jpg" width="800"><br>
+  <i>Displays the summarized text in a structured format.</i>
+</p>
 
-### 8. Term Explaining
-![Term Explaining](web_screenshots/8.jpg)
-Explanantion of Jargons with Examples and Context of the paper.
+<p align="center">
+  <b>8. Term Explaining</b><br>
+  <img src="web_screenshots/8.jpg" width="800"><br>
+  <i>Explanation of jargons with examples and context of the paper.</i>
+</p>

@@ -46,13 +46,13 @@ def ask_model() -> str:
     print("   [1] llama-3.3-70b-versatile  (best quality — recommended)")
     print("   [2] llama-3.1-8b-instant     (faster, lightweight)")
     print("   [3] llama-3.3-70b-specdec    (faster decoding, same quality)")
-    print("   [4] gpt-oss-120b    ")
+    print("   [4] openai/gpt-oss-120b    ")
 
     models = {
         "1": "llama-3.3-70b-versatile",
         "2": "llama-3.1-8b-instant",
         "3": "llama-3.3-70b-specdec",
-        "4": "gpt-oss-120b"
+        "4": "openai/gpt-oss-120b"
     }
 
     while True:

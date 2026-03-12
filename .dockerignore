@@ -1,0 +1,42 @@
+# .dockerignore
+# Keeps the Docker build context lean — these files are never copied into the image
+
+# Environment — never bake secrets into an image
+.env
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Git
+.git/
+.gitignore
+
+# Dev/IDE
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# Generated outputs — not needed in the image
+outputs/
+
+# Web folder (standalone JS version — not used by Flask)
+web/
+
+# Screenshots
+web_screenshots/
+
+# Docs
+README.md
+
+# Tests
+tests/

@@ -2,6 +2,7 @@
 
 ## Project Structure
 
+```
 PaperLens/
 ├── app/
 │   ├── app.py                        Flask server + API routes
@@ -32,6 +33,7 @@ PaperLens/
 ├── Dockerfile                        Dockerfile
 ├── .dockerignore
 └── .gitignore
+```
 
 ## Website images
 <p align="center">

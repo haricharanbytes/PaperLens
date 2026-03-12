@@ -1,5 +1,39 @@
 #  PaperLens
 
+## Project Structure
+
+PaperLens/
+├── app/
+│   ├── app.py                        Flask server + API routes
+│   ├── templates/
+│   │   ├── index.html                Landing page
+│   │   └── summarizer.html           App page
+│   └── static/
+│       ├── css/
+│       │   ├── landing.css           Landing styles
+│       │   └── app.css               App styles
+│       └── js/
+│           ├── landing.js            Scroll animations
+│           └── app.js                
+├── fetcher/
+│   └── arxiv_fetcher.py              ArXiv API 
+├── utils/
+│   └── helpers.py                    Text cleaning & chunking
+├── summarizer/
+│   └── summarize.py                  LangChain + Groq 
+├── explainer/
+│   └── concept_explainer.py          Terms detection & explanation
+├── outputs/
+│   └── summaries/                    Saved summary 
+├── web_screenshots/                  App screenshots
+├── main.py                           CLI entry point
+├── requirements.txt
+├── Procfile
+├── Dockerfile                        Dockerfile
+├── .dockerignore
+└── .gitignore
+
+## Website images
 <p align="center">
   <b>1. Home Page</b><br>
   <img src="https://github.com/haricharanbytes/PaperLens/blob/4fe7837e7fcf150b1ce525bcf0ee1a85821a7e5d/web_screenshots/1.png" width="800"><br>
